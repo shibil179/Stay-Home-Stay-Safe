@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if patient_info%}
+{% for patient in patient_info%}
+    <div class="content-section">
+        Name:{{patient.name}}<br>
+        Email:{{patient.email}}<br>
+        Contact_no:{{patient.contact_no}}<br>
+        Address:{{patient.address}}<br>
+        Patient test_result:{{patient.test_result}}<br>
+        <a href="/doctor_chat/{{patient.email}}"><button>Chat</button></a>
+    </div>
+{% endfor %}
+{% else %}
+    All Patient's Health is good
+{% endif %}
+{% endblock content %}

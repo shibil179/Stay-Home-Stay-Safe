@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if patient_info%}
+{% for patient in patient_info%}
+Patients Information:
+    <div class="content-section">
+        Name:{{patient.name}}<br>
+        Email:{{patient.email}}<br>
+        Contact_no:{{patient.contact_no}}<br>
+        Address:{{patient.address}}<br>
+        Update Patient test_result: <br>
+        <a href="/test_result/{{patient.email}}/postive"><button>Postive</button></a>
+        <a href="/test_result/{{patient.email}}/negative"><button>Negative</button></a>
+    </div>
+{% endfor %}
+{% else %}
+    All Patient's Health is good
+{% endif %}
+
+{% if names %}
+{% for name in names %}
+<div class="content-section">
+	Doctor-{{name[0]}}<br>
+	{% if name[1]!=None %}
+	Patients-{{name[1]}}
+	{% endif %}
+	{% if name[1]==[] %}
+	No Patients 
+	{% endif %}
+
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock content %}
